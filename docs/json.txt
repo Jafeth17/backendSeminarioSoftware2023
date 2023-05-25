@@ -1,0 +1,5 @@
+Que es un objeto json?
+
+Un formato de serializacion e intercambio de datos.
+
+es un conjunto de pares clave/valor. Un objeto JSON comienza con una {y termina con}, cada par de clave/valor esta separado por una coma.
