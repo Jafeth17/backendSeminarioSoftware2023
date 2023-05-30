@@ -2,7 +2,7 @@ import express from "express";
 
 const router = express.Router();
 
-import { createProject, getProjects, updateProject, deleteProject } from '@libs/projects/projects';
+import { createProject, getProjects, updateProject, deleteProject, getProject } from '@libs/projects/projects';
 //import { json } from "stream/consumers";
 
 router.get('/', (_req, res) => {
@@ -62,5 +62,14 @@ router.delete('/del/:id', async (req, res) => {
     }
 });
 
+router.get('/byid/:id', async (req, res) => {
+    try {
+        const { id = '' } = req.params;
+        const project = await getProject(id);
+        return res.json(project);
+    } catch (ex: any) {
+        return res.status(500).json({ error: ex?.message });
+    }
+});
 
 export default router;
